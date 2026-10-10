@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oracle — ไพ่ทาโรต์</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@400;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="flash"></div>
+<canvas id="galaxyCanvas"></canvas>
+<div class="rune" style="top:15%;left:5%;font-size:2rem;--dl:0s">ᚱ</div>
+<div class="rune" style="top:8%;right:6%;font-size:1.5rem;--dl:1.5s">ᛟ</div>
+<div class="rune" style="bottom:10%;left:7%;font-size:1.8rem;--dl:1s">ᛉ</div>
+<div class="rune" style="bottom:8%;right:5%;font-size:1.4rem;--dl:2.5s">ᚹ</div>
+
+<!-- LANDING -->
+<div id="landing">
+  <div class="ceiling"></div>
+  <div id="rope" class="rope-wrap">
+    <div class="hook"></div>
+    <div class="rope" style="height:160px"></div>
+    <div class="knot"></div>
+    <div class="rope" style="height:70px"></div>
+    <div class="lantern" id="lantern">
+      <div class="lt"></div>
+      <div class="lb"><div class="lf">🕯</div></div>
+      <div class="lbase"></div>
+    </div>
+  </div>
+  <div class="l-hint">· ดึงโคมไฟ ·</div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="app-title">ห้องแห่งโชคชะตา</div>
+  <div class="app-sub">CHAMBER OF FATE</div>
+
+  <div class="main-layout">
+
+    <!-- WITCH + TABLE (ซ้าย) -->
+    <div class="witch-col">
+    <div class="witch-section">
+      <!-- SVG แม่มด -->
+      <svg id="witchSvg" class="witch-svg" width="720" height="820" viewBox="0 0 720 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes kf_________________________________________2_transform_0 {
+  0% { animation-timing-function: ease-in-out; transform: translateX(47px) translateY(0px); }
+  21.92% { animation-timing-function: ease-in-out; transform: translateX(47px) translateY(2px); }
+  43.84% { animation-timing-function: ease-in-out; transform: translateX(47px) translateY(0px); }
+  69.86% { animation-timing-function: ease-in-out; transform: translateX(47px) translateY(3px); }
+  78.08% { animation-timing-function: ease-in-out; transform: translateX(47px) translateY(0px); }
+  86.3% { animation-timing-function: ease-in-out; transform: translateX(47px) translateY(3px); }
+  94.52% { transform: translateX(47px) translateY(0px); }
+  100% { transform: translateX(47px) translateY(0px); }
+}
+#________________________________________2 { transform-origin: 0 0; animation: kf_________________________________________2_transform_0 7.3s linear infinite; }
+@keyframes kf____________________4_transform_0 {
+  0% { transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  18.49% { animation-timing-function: ease-in-out; transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  19.59% { animation-timing-function: ease-in-out; transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(0.08) translate(-17.5px, -11px); }
+  21.23% { transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  60.27% { animation-timing-function: ease-in-out; transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  61.37% { animation-timing-function: ease-in-out; transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(0.08) translate(-17.5px, -11px); }
+  63.01% { transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  100% { transform: translateX(97px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+}
+#___________________4 { transform-origin: 0 0; animation: kf____________________4_transform_0 7.3s linear infinite; }
+@keyframes kf_________________4_transform_0 {
+  0% { transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  18.49% { animation-timing-function: ease-in-out; transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  19.59% { animation-timing-function: ease-in-out; transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(0.08) translate(-17.5px, -11px); }
+  21.23% { transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  60.27% { animation-timing-function: ease-in-out; transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  61.37% { animation-timing-function: ease-in-out; transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(0.08) translate(-17.5px, -11px); }
+  63.01% { transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+  100% { transform: translateX(197px) translateY(260px) translate(17.5px, 11px) scaleY(1) translate(-17.5px, -11px); }
+}
+#________________4 { transform-origin: 0 0; animation: kf_________________4_transform_0 7.3s linear infinite; }
+@keyframes kf____________________7_transform_0 {
+  0% { transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.16) translate(-13px, -8px); }
+  43.84% { transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.16) translate(-13px, -8px); }
+  61.64% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.16) translate(-13px, -8px); }
+  65.75% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.8) translate(-13px, -8px); }
+  68.49% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.2) translate(-13px, -8px); }
+  71.23% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(1) translate(-13px, -8px); }
+  73.97% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.2) translate(-13px, -8px); }
+  76.71% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.7) translate(-13px, -8px); }
+  79.45% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.18) translate(-13px, -8px); }
+  82.19% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(1) translate(-13px, -8px); }
+  84.93% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.25) translate(-13px, -8px); }
+  87.67% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.8) translate(-13px, -8px); }
+  90.41% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.18) translate(-13px, -8px); }
+  93.15% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.65) translate(-13px, -8px); }
+  95.89% { animation-timing-function: ease-in-out; transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.18) translate(-13px, -8px); }
+  100% { transform: translateX(152px) translateY(310px) translate(13px, 8px) scaleY(0.16) translate(-13px, -8px); }
+}
+#___________________7 { transform-origin: 0 0; animation: kf____________________7_transform_0 7.3s linear infinite; }
+@keyframes kf____________________8_transform_0 {
+  0% { animation-timing-function: ease-in-out; transform: translateX(18px) translate(12.047px, 19.979px) scaleX(1) translate(-12.047px, -19.979px); }
+  13.7% { animation-timing-function: ease-in-out; transform: translateX(18px) translate(12.047px, 19.979px) scaleX(0.86) translate(-12.047px, -19.979px); }
+  27.4% { animation-timing-function: ease-in-out; transform: translateX(18px) translate(12.047px, 19.979px) scaleX(1.1) translate(-12.047px, -19.979px); }
+  41.1% { animation-timing-function: ease-in-out; transform: translateX(18px) translate(12.047px, 19.979px) scaleX(0.88) translate(-12.047px, -19.979px); }
+  54.79% { animation-timing-function: ease-in-out; transform: translateX(18px) translate(12.047px, 19.979px) scaleX(1.05) translate(-12.047px, -19.979px); }
+  68.49% { animation-timing-function: ease-in-out; transform: translateX(18px) translate(12.047px, 19.979px) scaleX(0.9) translate(-12.047px, -19.979px); }
+  82.19% { transform: translateX(18px) translate(12.047px, 19.979px) scaleX(1) translate(-12.047px, -19.979px); }
+  100% { transform: translateX(18px) translate(12.047px, 19.979px) scaleX(1) translate(-12.047px, -19.979px); }
+}
+#___________________8 { transform-origin: 0 0; animation: kf____________________8_transform_0 7.3s linear infinite; }
+@keyframes kf_________________________________________5_offset_distance_0 {
+  0%{offset-distance:0%}43.836%{offset-distance:27.702%}45%{offset-distance:28.687%}46.25%{offset-distance:31.642%}47.5%{offset-distance:35.582%}48.75%{offset-distance:38.537%}50%{offset-distance:39.522%}51.25%{offset-distance:40.852%}52.5%{offset-distance:44.841%}53.75%{offset-distance:51.49%}55%{offset-distance:59.468%}56.25%{offset-distance:66.117%}57.5%{offset-distance:70.106%}58.75%{offset-distance:71.436%}60%{offset-distance:72.626%}61.25%{offset-distance:77.387%}62.5%{offset-distance:84.528%}63.75%{offset-distance:92.859%}65%{offset-distance:97.62%}66.25%{offset-distance:100%}100%{offset-distance:100%}
+}
+@keyframes kf_________________________________________5_transform_0 {
+  0%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}5.48%{transform:translate(72.5px,55px) rotate(-0.052rad) translate(-72.5px,-55px)}10.96%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}16.44%{transform:translate(72.5px,55px) rotate(-0.052rad) translate(-72.5px,-55px)}21.92%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}27.4%{transform:translate(72.5px,55px) rotate(-0.052rad) translate(-72.5px,-55px)}32.88%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}38.36%{transform:translate(72.5px,55px) rotate(-0.052rad) translate(-72.5px,-55px)}43.84%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}100%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}
+}
+#________________________________________5 {
+  translate:206px 537px;transform-origin:0 0;transform-box:view-box;
+  offset-path:path('M0 0 C4 -2.8 8 -5.6 12 -8.4 C8 -5.6 4 -2.8 0 0 C4 -2.8 8 -5.6 12 -8.4 C8 -5.6 4 -2.8 0 0 C4 -2.8 8 -5.6 12 -8.4 C8 -5.6 4 -2.8 0 0 C4 -2.8 8 -5.6 12 -8.4 C8 -5.6 4 -2.8 0 0 C16.667 0 33.333 0 50 0 C50 45 50 90 50 135 C33.333 98.333 16.667 61.667 0 25');
+  offset-rotate:0deg;offset-anchor:0px 0px;
+  animation:kf_________________________________________5_transform_0 7.3s linear infinite,kf_________________________________________5_offset_distance_0 7.3s linear infinite;
+}
+@keyframes kf__________________________34_opacity_0 {
+  0%{opacity:1}49.59%{animation-timing-function:ease-in-out;opacity:1}50.96%{animation-timing-function:linear;opacity:0}100%{opacity:0}
+}
+@keyframes kf__________________________34_transform_0 {
+  0%{transform:translateX(20px) translateY(0px) translate(46.899px,42.682px) rotate(0rad) translate(-46.899px,-42.682px) rotate(-0.209rad) scaleX(1) scaleY(1) skewX(0rad)}
+  43.84%{transform:translateX(20px) translateY(0px) translate(46.899px,42.682px) rotate(0rad) translate(-46.899px,-42.682px) rotate(-0.209rad) scaleX(1) scaleY(1) skewX(0rad)}
+  50%{transform:translateX(20px) translateY(0px) translate(46.899px,42.682px) rotate(0.209rad) translate(-46.899px,-42.682px) rotate(-0.209rad) scaleX(1) scaleY(1) skewX(0rad)}
+  100%{transform:translateX(20px) translateY(0px) translate(46.899px,42.682px) rotate(0.209rad) translate(-46.899px,-42.682px) rotate(-0.209rad) scaleX(1) scaleY(1) skewX(0rad)}
+}
+@keyframes kf__________________________34_offset_distance_0 {
+  0%{offset-distance:0%}43.75%{offset-distance:28.024%}50%{offset-distance:28.024%}51.25%{offset-distance:28.503%}52.5%{offset-distance:29.942%}53.75%{offset-distance:32.34%}55%{offset-distance:35.217%}56.25%{offset-distance:37.615%}57.5%{offset-distance:39.054%}58.75%{offset-distance:39.534%}60%{offset-distance:42.053%}61.25%{offset-distance:52.131%}62.5%{offset-distance:67.247%}63.75%{offset-distance:84.883%}65%{offset-distance:94.961%}66.25%{offset-distance:100%}100%{offset-distance:100%}
+}
+@keyframes kf______________________________________3_transform_0 {
+  0%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}5.48%{transform:translate(72.5px,55px) rotate(0.052rad) translate(-72.5px,-55px)}10.96%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}16.44%{transform:translate(72.5px,55px) rotate(0.052rad) translate(-72.5px,-55px)}21.92%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}27.4%{transform:translate(72.5px,55px) rotate(0.052rad) translate(-72.5px,-55px)}32.88%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}38.36%{transform:translate(72.5px,55px) rotate(0.052rad) translate(-72.5px,-55px)}43.84%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}100%{transform:translate(72.5px,55px) rotate(0rad) translate(-72.5px,-55px)}
+}
+@keyframes kf______________________________________3_offset_distance_0 {
+  0%{offset-distance:0%}43.75%{offset-distance:25.473%}45%{offset-distance:26.884%}50%{offset-distance:42.41%}57.5%{offset-distance:70.237%}58.75%{offset-distance:71.447%}66.25%{offset-distance:100%}100%{offset-distance:100%}
+}
+#_____________________________________3 {
+  translate:362px 537px;transform-origin:0 0;transform-box:view-box;
+  offset-path:path('M0 0 C-4 1.8 -8 3.6 -12 5.4 C-8 3.6 -4 1.8 0 0 C-4 1.8 -8 3.6 -12 5.4 C-8 3.6 -4 1.8 0 0 C-4 1.8 -8 3.6 -12 5.4 C-8 3.6 -4 1.8 0 0 C-4 1.8 -8 3.6 -12 5.4 C-8 3.6 -4 1.8 0 0 C-23.333 0 -46.667 0 -70 0 C-70 40 -70 80 -70 120 C-46.667 88.333 -23.333 56.667 0 25');
+  offset-rotate:0deg;offset-anchor:0px 0px;
+  animation:kf______________________________________3_transform_0 7.3s linear infinite,kf______________________________________3_offset_distance_0 7.3s linear infinite;
+}
+#_________________________34 {
+  transform-origin:0 0;
+  animation:kf__________________________34_transform_0 7.3s linear infinite,kf__________________________34_opacity_0 7.3s linear infinite;
+  translate:44px 0px;transform-box:view-box;
+  offset-path:path('M0 0 C0 -2.333 0 -4.667 0 -7 C0 -4.667 0 -2.333 0 0 C0 -2.333 0 -4.667 0 -7 C0 -4.667 0 -2.333 0 0 C0 -2.333 0 -4.667 0 -7 C0 -4.667 0 -2.333 0 0 C0 -2.333 0 -4.667 0 -7 C0 -4.667 0 -2.333 0 0 C0 7.667 0 15.333 0 23 C16.667 59.667 33.333 96.333 50 133');
+  offset-rotate:0deg;offset-anchor:0px 0px;
+}
+</style>
+<g clip-path="url(#clip0_1_1206)">
+<rect width="720" height="820" fill="transparent"/>
+<defs>
+  <radialGradient id="bgGrad" cx="50%" cy="45%" r="50%">
+    <stop offset="0%" stop-color="#3a2a6a"/>
+    <stop offset="40%" stop-color="#251848"/>
+    <stop offset="100%" stop-color="#0e0820"/>
+  </radialGradient>
+  <radialGradient id="innerGrad" cx="50%" cy="42%" r="50%">
+    <stop offset="0%" stop-color="#2e1f5e"/>
+    <stop offset="50%" stop-color="#1e1240"/>
+    <stop offset="100%" stop-color="#120b30"/>
+  </radialGradient>
+  <filter id="softGlow">
+    <feGaussianBlur stdDeviation="8" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+</defs>
+<ellipse transform="translate(87 78)" cx="273" cy="297" rx="273" ry="297" fill="url(#bgGrad)"/>
+<ellipse transform="translate(87 78)" cx="273" cy="297" rx="273" ry="297" fill="rgba(100,60,200,.08)" filter="url(#softGlow)"/>
+<ellipse transform="translate(120 111)" cx="240" cy="264" rx="240" ry="264" fill="url(#innerGrad)"/>
+<path transform="translate(89 224)" d="M10.5 0C11.48 6.02 14.98 9.52 21 10.5C14.98 11.48 11.48 14.98 10.5 21C9.52 14.98 6.02 11.48 0 10.5C6.02 9.52 9.52 6.02 10.5 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(601 231)" d="M13 0C14.2133 7.45333 18.5467 11.7867 26 13C18.5467 14.2133 14.2133 18.5467 13 26C11.7867 18.5467 7.45333 14.2133 0 13C7.45333 11.7867 11.7867 7.45333 13 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(116 430)" d="M8 0C8.74667 4.58667 11.4133 7.25333 16 8C11.4133 8.74667 8.74667 11.4133 8 16C7.25333 11.4133 4.58667 8.74667 0 8C4.58667 7.25333 7.25333 4.58667 8 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(591 459)" d="M8 0C8.74667 4.58667 11.4133 7.25333 16 8C11.4133 8.74667 8.74667 11.4133 8 16C7.25333 11.4133 4.58667 8.74667 0 8C4.58667 7.25333 7.25333 4.58667 8 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(192 104)" d="M6 0C6.56 3.44 8.56 5.44 12 6C8.56 6.56 6.56 8.56 6 12C5.44 8.56 3.44 6.56 0 6C3.44 5.44 5.44 3.44 6 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(534 127)" d="M7 0C7.65333 4.01333 9.98667 6.34667 14 7C9.98667 7.65333 7.65333 9.98667 7 14C6.34667 9.98667 4.01333 7.65333 0 7C4.01333 6.34667 6.34667 4.01333 7 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(552 357)" d="M4.5 0C4.92 2.58 6.42 4.08 9 4.5C6.42 4.92 4.92 6.42 4.5 9C4.08 6.42 2.58 4.92 0 4.5C2.58 4.08 4.08 2.58 4.5 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(159 322)" d="M5 0C5.46667 2.86667 7.13333 4.53333 10 5C7.13333 5.46667 5.46667 7.13333 5 10C4.53333 7.13333 2.86667 5.46667 0 5C2.86667 4.53333 4.53333 2.86667 5 0Z" fill="#E9C57E" stroke="black"/>
+<ellipse transform="translate(174 684)" cx="187" cy="22.5" rx="187" ry="22.5" fill="#101326"/>
+<g transform="translate(149 85)">
+<path transform="translate(86 172)" d="M125 0C42 0 6 41 4 109L0 184C18 195.333 40 197.667 66 191L79 167H174L190 191C214 197.667 234.667 195.333 252 184L249 104C247 38 207 0 125 0Z" fill="#D49C42" stroke="black"/>
+<path transform="translate(30 358)" d="M126 0C61 1 18 31 12 107L0 228C105.333 262 211.333 262.333 318 229L305 109C299 35 254 2 192 0L161 40L126 0Z" fill="#6857A2" stroke="#24213A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(63 435)" d="M28 0C16 41.3333 6.66667 87.3333 0 138M44 36L36 148" stroke="#514481" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(290 435)" d="M0 0C12 41.3333 21.3333 87.3333 28 138M0 38L7 148" stroke="#514481" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect transform="translate(164 303)" width="82" height="89" rx="28" fill="#F2BC9D"/>
+<path transform="translate(119 362)" d="M0 0L51 19L87 43L122 18L176 0L138 81L88 54L39 81L0 0Z" fill="#24213A" stroke="black"/>
+<ellipse transform="translate(190 415)" cx="17" cy="20" rx="17" ry="20" fill="#E9C57E"/>
+<ellipse transform="translate(197 422)" cx="10" cy="13" rx="10" ry="13" fill="#BAA8EA"/>
+<g id="________________________________________2">
+<ellipse transform="translate(49 237)" cx="17.5" cy="24.5" rx="17.5" ry="24.5" fill="#F2BC9D"/>
+<ellipse transform="translate(246 237)" cx="17.5" cy="24.5" rx="17.5" ry="24.5" fill="#F2BC9D"/>
+<path transform="translate(66 182)" d="M6 13C61.3333 -4.33333 116.667 -4.33333 172 13V101C165 153 135 180 88 181C40 179 9 154 0 108L6 13Z" fill="#F2BC9D" stroke="#24213A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(56 175)" d="M0 81.1841C0 16.1841 44 -7.81589 104 2.18411C80 45.1841 50 64.1841 13 65.1841L11 110.184L0 81.1841Z" fill="#F5C766" stroke="black"/>
+<path transform="translate(153 175)" d="M0 3.0092C55 -9.9908 111 20.0092 116 76.0092L120 114.009C86 101.009 39 62.0092 0 3.0092Z" fill="#F5C766" stroke="black"/>
+<path transform="translate(38 232)" d="M27 0C8 14 0 41 0 72V111C9.33333 119 23.6667 121 43 117C45.6667 111 46 105.333 44 100C38 70 48 39 46 14L27 0Z" fill="#F5C766" stroke="black"/>
+<path transform="translate(245 231)" d="M2 0C32 10 45 42 45 73V110C33.6667 118 19.3333 120.333 2 117C-0.666667 111 -0.666667 104.667 2 98C9 70 -1 36 2 0Z" fill="#F5C766" stroke="black"/>
+<ellipse transform="translate(90 286)" cx="14.5" cy="7" rx="14.5" ry="7" fill="#E99B94"/>
+<ellipse transform="translate(209 286)" cx="14.5" cy="7" rx="14.5" ry="7" fill="#E99B94"/>
+<g id="___________________4">
+<path d="M0 8.03571C10 -1.96429 20.3333 -2.63095 31 6.03571L35 2.03571" stroke="#24213A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse transform="translate(10 6)" cx="6" cy="7.5" rx="6" ry="7.5" fill="#24213A"/>
+<circle transform="translate(13 8)" cx="2" cy="2" r="2" fill="#FFF3DE"/>
+</g>
+<g id="________________4">
+<path d="M0 8.03571C10 -1.96429 20.3333 -2.63095 31 6.03571L35 2.03571" stroke="#24213A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse transform="translate(10 6)" cx="6" cy="7.5" rx="6" ry="7.5" fill="#24213A"/>
+<circle transform="translate(13 8)" cx="2" cy="2" r="2" fill="#FFF3DE"/>
+</g>
+<path transform="translate(159 278)" d="M5 0L0 14C2.66667 17.3333 6.33333 17.6667 11 15" stroke="#DB927D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="___________________7">
+<ellipse transform="translate(152 310)" cx="13" cy="8" rx="13" ry="8" fill="#874755"/>
+</g>
+<path transform="translate(53)" d="M0 188C34 107 45 53 94 0C88 49 160 48 179 92L218 188H0Z" fill="#24213A" stroke="#24213A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(76 36)" d="M0 139C15.3333 77.6667 38.3333 31.3333 69 0C43 68 42 97 28 145L0 139Z" fill="#393352" stroke="black"/>
+<path transform="translate(66 146)" d="M12 0C69.3333 13.3333 125.333 13.3333 180 0L194 34C130.667 50 66 50.3333 0 35L12 0Z" fill="#6857A2" stroke="black"/>
+<rect transform="translate(149 158)" width="40" height="33" rx="6" fill="#E9C57E"/>
+<rect transform="translate(158 165)" width="22" height="19" rx="2" fill="#24213A"/>
+<path transform="translate(0 173)" d="M0 22.5C43 -7.5 267 -7.5 328 22.5C308 64.5 34 69.5 0 22.5Z" fill="#24213A" stroke="black"/>
+<path transform="translate(14 190)" d="M0 0C98.6667 28 198.333 28 299 0" stroke="#53466F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(104 102)" d="M9.5 0C10.3867 5.44667 13.5533 8.61333 19 9.5C13.5533 10.3867 10.3867 13.5533 9.5 19C8.61333 13.5533 5.44667 10.3867 0 9.5C5.44667 8.61333 8.61333 5.44667 9.5 0Z" fill="#E9C57E" stroke="black"/>
+</g>
+</g>
+<ellipse transform="translate(50 661)" cx="310" cy="55.5" rx="310" ry="55.5" fill="#63516F"/>
+<rect transform="translate(50 714)" width="620" height="79" rx="16" fill="#403750"/>
+<ellipse transform="translate(83 673)" cx="277" cy="39.5" rx="277" ry="39.5" fill="#453D65"/>
+<path transform="translate(203 691)" d="M0 20.25C0 -6.75 314 -6.75 314 20.25C314 48.25 0 48.25 0 20.25Z" stroke="#AB8F91" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(105 580)">
+<ellipse transform="translate(0 104)" cx="27.5" cy="8" rx="27.5" ry="8" fill="#24213A"/>
+<rect transform="translate(14 44)" width="28" height="64" rx="5" fill="#FFF3DE"/>
+<path transform="translate(16 43)" d="M0 0H24V14C18.6667 21.3333 15 20.3333 13 11L8 13C2.66667 23.6667 0 19.3333 0 0Z" fill="#E9C57E" stroke="black"/>
+<path transform="translate(18)" d="M10.7002 0C6.70015 16 -6.29985 22 3.70015 36C16.7002 48 31.7002 30 19.7002 18C16.3668 13.3333 13.3668 7.33333 10.7002 0Z" fill="#E9C57E" stroke="black"/>
+<g id="___________________8"></g>
+</g>
+<g id="________________________________________5">
+<g id="_________________________32" transform="translate(44) rotate(12)">
+<rect transform="translate(6 6)" width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect transform="translate(4 4)" width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect transform="translate(2 2)" width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect x="1" y="1" width="66" height="91" rx="6" fill="#3B375F" stroke="#E9C57E" stroke-width="2"/>
+<rect transform="translate(7 7)" x="0.5" y="0.5" width="53" height="78" rx="3.5" fill="#3B375F" stroke="#E9C57E"/>
+<ellipse transform="translate(23 29)" cx="11" cy="14.5" rx="11" ry="14.5" fill="#E9C57E"/>
+<ellipse transform="translate(30 25)" cx="10" cy="14" rx="10" ry="14" fill="#3B375F"/>
+<path transform="translate(27 66)" d="M6.5 0C7.10667 3.72667 9.27333 5.89333 13 6.5C9.27333 7.10667 7.10667 9.27333 6.5 13C5.89333 9.27333 3.72667 7.10667 0 6.5C3.72667 5.89333 5.89333 3.72667 6.5 0Z" fill="#E9C57E" stroke="black"/>
+</g>
+<path transform="translate(0 44)" d="M0 32.3617C13.3333 6.3617 31.3333 -3.97163 54 1.3617L66 52.3617L18 63.3617L0 32.3617Z" fill="#A798D7" stroke="#24213A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(40 25)" d="M0 24.0688C12 9.06876 19 -0.931244 30 0.0687561C35.3333 0.0687561 36.6667 3.40209 34 10.0688L27 20.0688H52C66 20.0688 71 40.0688 58 47.0688L25 61.0688C16.3333 63.7354 8 60.7354 0 52.0688V24.0688Z" fill="#F2BC9D" stroke="#24213A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="_____________________________________3">
+<g id="_________________________34" transform="translate(20) rotate(-12)">
+<rect transform="translate(6 6)" width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect transform="translate(4 4)" width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect transform="translate(2 2)" width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect width="68" height="93" rx="7" fill="#FFF3DE"/>
+<rect x="1" y="1" width="66" height="91" rx="6" fill="#3B375F" stroke="#E9C57E" stroke-width="2"/>
+<rect transform="translate(7 7)" x="0.5" y="0.5" width="53" height="78" rx="3.5" fill="#3B375F" stroke="#E9C57E"/>
+<ellipse transform="translate(23 29)" cx="11" cy="14.5" rx="11" ry="14.5" fill="#E9C57E"/>
+<ellipse transform="translate(30 25)" cx="10" cy="14" rx="10" ry="14" fill="#3B375F"/>
+<path transform="translate(27 66)" d="M6.5 0C7.10667 3.72667 9.27333 5.89333 13 6.5C9.27333 7.10667 7.10667 9.27333 6.5 13C5.89333 9.27333 3.72667 7.10667 0 6.5C3.72667 5.89333 5.89333 3.72667 6.5 0Z" fill="#E9C57E" stroke="black"/>
+</g>
+<path transform="translate(80 44)" d="M0 1.3617C23.3333 -3.97163 41.6667 6.3617 55 32.3617L38 63.3617L0 52.3617V1.3617Z" fill="#A798D7" stroke="#24213A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path transform="translate(17 25)" d="M66.5361 24.0688C52.5361 9.06876 46.5361 -0.931244 35.5361 0.0687561C30.2027 0.0687561 28.8694 3.40209 31.5361 10.0688L38.5361 20.0688H13.5361C-0.463917 20.0688 -5.46392 40.0688 7.53608 47.0688L41.5361 61.0688C49.5361 63.7354 57.8694 60.7354 66.5361 52.0688V24.0688Z" fill="#F2BC9D" stroke="#24213A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs><clipPath id="clip0_1_1206"><rect width="720" height="820" fill="white"/></clipPath></defs>
+</svg>
+      <div class="witch-label">Malfoy ♀ · Oracle</div>
+    </div>
+
+    <!-- TABLE ใต้แม่มด -->
+    <div class="table-section">
+      <div class="table-top" id="tableTop">
+        <div class="tc-candle tc1"><div class="tc-f">🔥</div><div class="tc-b"></div></div>
+        <div class="tc-candle tc2"><div class="tc-f">🔥</div><div class="tc-b"></div></div>
+        <div class="deck-zone" id="deckZone">
+          <div class="deck-stack">
+            <div class="dc">✦</div><div class="dc">✦</div><div class="dc">✦</div>
+          </div>
+          <div class="deck-lbl">หยิบสำรับไพ่</div>
+        </div>
+        <div class="drawn-card" id="drawnCard">
+          <div class="drawn-num" id="drawnNum">0</div>
+          <div id="drawnEmoji" style="font-size:1.5rem">☀️</div>
+        </div>
+      </div>
+      <div class="table-leg"></div>
+      <div style="text-align:center;margin-top:.5rem">
+        <button class="btn-again" id="btnAgain" onclick="reset()">✦ ทำนายอีกครั้ง ✦</button>
+      </div>
+    </div>
+    </div><!-- end witch-col -->
+
+    <!-- BUBBLE COL (ขวาแม่มด) -->
+    <div class="bubble-col">
+      <div class="bubble" id="bubble">
+        <div class="bubble-title" id="bubbleTitle"></div>
+        <div class="bubble-text" id="bubbleText"><span class="cursor"></span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- OVERLAY -->
+<div id="ov">
+  <div class="ov-hint" id="ovHint">สำรับไพ่อยู่ในมือคุณแล้ว</div>
+  <div class="ov-deck" id="ovDeck">
+    <div class="odc">✦</div><div class="odc">✦</div><div class="odc">✦</div>
+  </div>
+  <button class="btn-sh" id="btnSh" onclick="doShuffle()">✦ สับไพ่ ✦</button>
+  <button class="btn-dr" id="btnDr" style="display:none" onclick="doDraw()">จั่วไพ่</button>
+</div>
+
+<script src="js/cards.js"></script>
+<script src="js/galaxy.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
