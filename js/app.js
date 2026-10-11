@@ -9,7 +9,16 @@
     if(done)return;done=true;
     rope.classList.add('pull');lantern.classList.add('lit');
     flash.classList.add('on');setTimeout(()=>flash.classList.remove('on'),200);
-    setTimeout(()=>{landing.classList.add('gone');document.getElementById('app').classList.add('on');},560);
+    // landing fade
+    setTimeout(()=>landing.classList.add('gone'),400);
+    // เปิดม่าน
+    const curtain=document.getElementById('curtain');
+    setTimeout(()=>curtain.classList.add('open'),500);
+    // เข้า app
+    setTimeout(()=>{
+      document.getElementById('app').classList.add('on');
+      setTimeout(()=>curtain.classList.add('hidden'),1800);
+    },900);
   }
   landing.addEventListener('click',enter);
   let sy=0,drag=false;
