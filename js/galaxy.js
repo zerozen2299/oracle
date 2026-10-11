@@ -176,7 +176,7 @@
     dust.forEach(d=>{
       d.t+=.018;d.x+=d.vx+Math.sin(d.t)*.28;d.y+=d.vy;d.life+=d.decay;
       if(d.life>1){d.x=Math.random()*W;d.y=H+8;d.life=0;d.op=0;}
-      const a=Math.max(0,d.life<.12?d.life/. 12*d.maxOp : d.life>.8?(1-d.life)/.2*d.maxOp : d.maxOp);
+      const a=Math.max(0,d.life<.12?d.life/.12*d.maxOp : d.life>.8?(1-d.life)/.2*d.maxOp : d.maxOp);
       if(d.r>1.4){
         const g=ctx.createRadialGradient(d.x,d.y,0,d.x,d.y,d.r*3);
         g.addColorStop(0,d.col+'cc');g.addColorStop(1,'transparent');
@@ -363,9 +363,17 @@
       // pill bg
       ctx2.globalAlpha=lA*.55;
       ctx2.fillStyle='rgba(15,8,40,.8)';
+      const rx2=cx-tw/2-7,ry2=maxY+10,rw2=tw+14,rh2=fs+8,rr2=4;
       ctx2.beginPath();
-      ctx2.roundRect(cx-tw/2-7,maxY+10,tw+14,fs+8,4);
-      ctx2.fill();
+      ctx2.moveTo(rx2+rr2,ry2);ctx2.lineTo(rx2+rw2-rr2,ry2);
+      ctx2.arcTo(rx2+rw2,ry2,rx2+rw2,ry2+rr2,rr2);
+      ctx2.lineTo(rx2+rw2,ry2+rh2-rr2);
+      ctx2.arcTo(rx2+rw2,ry2+rh2,rx2+rw2-rr2,ry2+rh2,rr2);
+      ctx2.lineTo(rx2+rr2,ry2+rh2);
+      ctx2.arcTo(rx2,ry2+rh2,rx2,ry2+rh2-rr2,rr2);
+      ctx2.lineTo(rx2,ry2+rr2);
+      ctx2.arcTo(rx2,ry2,rx2+rr2,ry2,rr2);
+      ctx2.closePath();ctx2.fill();
       // text glow
       ctx2.globalAlpha=lA*.4;
       ctx2.fillStyle='#a090e8';
@@ -381,12 +389,21 @@
     requestAnimationFrame(drawZod);
   }
 
-  // fade in เมื่อเข้าห้อง
-  new MutationObserver(()=>{
+  // fade in เมื่อเข้าห้อง — ตรวจทั้ง MutationObserver และ polling
+  function checkShow(){
     if(document.getElementById('app').classList.contains('on')){
       cv2.style.opacity='1';
-    }
-  }).observe(document.getElementById('app'),{attributes:true,attributeFilter:['class']});
+    } else { setTimeout(checkShow,200); }
+  }
+  try{
+    new MutationObserver((m,obs)=>{
+      if(document.getElementById('app').classList.contains('on')){
+        cv2.style.opacity='1';obs.disconnect();
+      }
+    }).observe(document.getElementById('app'),{attributes:true,attributeFilter:['class']});
+  }catch(e){}
+  // fallback polling
+  setTimeout(checkShow,1000);
 
   window.addEventListener('resize',resize2);
   resize2();
