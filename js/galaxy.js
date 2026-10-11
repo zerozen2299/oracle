@@ -151,3 +151,149 @@
   resize();
   requestAnimationFrame(draw);
 })();
+
+/* ── ZODIAC CONSTELLATIONS ── */
+(function(){
+  const cv=document.getElementById('galaxyCanvas');
+  if(!cv)return;
+
+  // 12 กลุ่มดาวจักราศี พิกัดสัมพัทธ์ (0-1)
+  // แต่ละกลุ่มมี stars[] และ lines[] เชื่อมดาว
+  const ZODIACS=[
+    {name:'Aries',th:'เมษ',sx:.08,sy:.12,scale:.06,
+     stars:[[0,0],[1.2,.8],[2.5,.3],[3.2,1.5],[2,.9]],
+     lines:[[0,1],[1,2],[2,3],[1,4]]},
+    {name:'Taurus',th:'พฤษภ',sx:.22,sy:.05,scale:.065,
+     stars:[[0,0],[1,1.2],[2.5,1],[3.5,.2],[2,-.5],[1,-.3]],
+     lines:[[0,1],[1,2],[2,3],[0,4],[4,5],[5,1]]},
+    {name:'Gemini',th:'เมถุน',sx:.38,sy:.08,scale:.07,
+     stars:[[0,0],[0,2],[0,3.5],[1,3.8],[1.8,2.5],[1.8,0],[1.8,-1]],
+     lines:[[0,1],[1,2],[2,3],[5,4],[4,3],[0,5],[5,6]]},
+    {name:'Cancer',th:'กรกฎ',sx:.54,sy:.06,scale:.055,
+     stars:[[0,.5],[1,0],[2,.8],[1.5,2],[.5,1.8]],
+     lines:[[0,1],[1,2],[2,3],[3,4],[4,0]]},
+    {name:'Leo',th:'สิงห์',sx:.70,sy:.05,scale:.07,
+     stars:[[0,0],[1.2,.5],[2.5,.2],[2,1.8],[.8,2],[-.2,1],[1,3.5]],
+     lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[4,6]]},
+    {name:'Virgo',th:'กันย์',sx:.86,sy:.1,scale:.065,
+     stars:[[0,0],[1,1],[1.5,2.5],[.5,3.5],[1.8,3],[2.5,2],[2,0]],
+     lines:[[0,1],[1,2],[2,3],[2,4],[4,5],[5,6],[6,0]]},
+    {name:'Libra',th:'ตุลย์',sx:.05,sy:.5,scale:.06,
+     stars:[[0,0],[2,0],[1,1.5],[0,3],[2,3]],
+     lines:[[0,1],[0,2],[1,2],[2,3],[2,4],[3,4]]},
+    {name:'Scorpio',th:'พิจิก',sx:.22,sy:.55,scale:.065,
+     stars:[[0,0],[1,.5],[2,.3],[3,1],[3.5,2],[3,3],[2,3.5],[1.5,2.8],[1,3.5]],
+     lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8]]},
+    {name:'Sagittarius',th:'ธนู',sx:.40,sy:.52,scale:.07,
+     stars:[[0,0],[1.5,1],[3,.5],[2.5,2],[1,2.5],[0,1.8],[2,3.5]],
+     lines:[[0,1],[1,2],[1,3],[3,4],[4,5],[5,0],[3,6]]},
+    {name:'Capricorn',th:'มังกร',sx:.58,sy:.55,scale:.06,
+     stars:[[0,0],[1.5,.5],[3,0],[2.5,2],[1.2,2.5],[0,1.5]],
+     lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0]]},
+    {name:'Aquarius',th:'กุมภ์',sx:.75,sy:.50,scale:.065,
+     stars:[[0,.5],[1,0],[2,.5],[3,0],[1,2],[2,2.5],[3,2]],
+     lines:[[0,1],[1,2],[2,3],[1,4],[4,5],[5,6]]},
+    {name:'Pisces',th:'มีน',sx:.88,sy:.52,scale:.055,
+     stars:[[0,0],[1,1],[2,.5],[1.5,2.5],[.5,2.8],[0,2],[2,3]],
+     lines:[[0,1],[1,2],[1,3],[3,4],[4,5],[5,1],[3,6]]}
+  ];
+
+  const canvas2=document.createElement('canvas');
+  canvas2.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:0;transition:opacity 2s ease 1s';
+  canvas2.id='zodiacCanvas';
+  document.body.appendChild(canvas2);
+
+  const ctx2=canvas2.getContext('2d');
+  let W2,H2,tick=0;
+  let zodiacs=[];
+
+  function resize2(){
+    W2=canvas2.width=window.innerWidth;
+    H2=canvas2.height=window.innerHeight;
+    buildZodiacs();
+  }
+
+  function buildZodiacs(){
+    zodiacs=ZODIACS.map(z=>{
+      const px=z.sx*W2, py=z.sy*H2;
+      const sc=Math.min(W2,H2)*z.scale;
+      return {
+        ...z,
+        px,py,sc,
+        twinkle:z.stars.map(()=>Math.random()*Math.PI*2),
+        labelAlpha:0
+      };
+    });
+  }
+
+  function drawZodiac(){
+    ctx2.clearRect(0,0,W2,H2);
+    tick+=.008;
+
+    zodiacs.forEach(z=>{
+      const stars=z.stars.map(([x,y])=>({
+        wx:z.px+x*z.sc, wy:z.py+y*z.sc
+      }));
+
+      // เส้นเชื่อมดาว
+      ctx2.save();
+      z.lines.forEach(([a,b])=>{
+        const sa=stars[a],sb=stars[b];
+        const gr=ctx2.createLinearGradient(sa.wx,sa.wy,sb.wx,sb.wy);
+        gr.addColorStop(0,'rgba(180,160,255,.18)');
+        gr.addColorStop(.5,'rgba(200,180,255,.28)');
+        gr.addColorStop(1,'rgba(180,160,255,.18)');
+        ctx2.beginPath();ctx2.moveTo(sa.wx,sa.wy);ctx2.lineTo(sb.wx,sb.wy);
+        ctx2.strokeStyle=gr;ctx2.lineWidth=.8;ctx2.stroke();
+      });
+
+      // ดาวแต่ละดวง
+      stars.forEach((s,i)=>{
+        z.twinkle[i]+=.02+Math.random()*.01;
+        const pulse=.5+.5*Math.sin(tick*1.2+z.twinkle[i]);
+        const r=1.8+pulse*1.2;
+        const alpha=.45+pulse*.5;
+
+        // glow
+        const g=ctx2.createRadialGradient(s.wx,s.wy,0,s.wx,s.wy,r*5);
+        g.addColorStop(0,`rgba(200,180,255,${alpha*.5})`);
+        g.addColorStop(.4,`rgba(160,130,255,${alpha*.2})`);
+        g.addColorStop(1,'transparent');
+        ctx2.beginPath();ctx2.arc(s.wx,s.wy,r*5,0,Math.PI*2);
+        ctx2.fillStyle=g;ctx2.fill();
+
+        // ดาว
+        ctx2.beginPath();ctx2.arc(s.wx,s.wy,r,0,Math.PI*2);
+        ctx2.fillStyle=`rgba(220,210,255,${alpha})`;
+        ctx2.fill();
+      });
+
+      // ชื่อกลุ่มดาว
+      const cx=stars.reduce((s,p)=>s+p.wx,0)/stars.length;
+      const cy=stars.reduce((s,p)=>s+p.wy,0)/stars.length + z.sc*.8;
+      ctx2.globalAlpha=.35+.1*Math.sin(tick+z.px);
+      ctx2.font=`${Math.max(9,Math.min(12,W2*.012))}px Cinzel, serif`;
+      ctx2.fillStyle='#c8b8f8';
+      ctx2.textAlign='center';
+      ctx2.fillText(z.th,cx,cy);
+      ctx2.globalAlpha=1;
+
+      ctx2.restore();
+    });
+
+    requestAnimationFrame(drawZodiac);
+  }
+
+  // แสดงกลุ่มดาวหลังเข้าห้อง
+  const observer=new MutationObserver(()=>{
+    if(document.getElementById('app').classList.contains('on')){
+      canvas2.style.opacity='1';
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.getElementById('app'),{attributes:true,attributeFilter:['class']});
+
+  window.addEventListener('resize',resize2);
+  resize2();
+  requestAnimationFrame(drawZodiac);
+})();
