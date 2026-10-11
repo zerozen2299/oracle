@@ -177,3 +177,57 @@ html,body{height:100%;overflow:hidden;background:var(--void);font-family:'Cinzel
 .btn-again{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.15em;color:rgba(201,169,110,.45);background:transparent;border:1px solid rgba(201,169,110,.15);padding:.4rem 1.2rem;cursor:pointer;transition:all .25s;margin-top:.5rem;display:none}
 .btn-again.on{display:inline-block}
 .btn-again:hover{color:var(--gold);border-color:rgba(201,169,110,.3);box-shadow:0 0 12px rgba(201,169,110,.15)}
+
+/* ── CURTAIN ── */
+#curtain{
+  position:fixed;inset:0;z-index:400;
+  pointer-events:none;
+  display:flex;
+}
+.curtain-left,.curtain-right{
+  width:50%;height:100%;
+  background:
+    repeating-linear-gradient(180deg,rgba(80,40,10,.0) 0,rgba(60,30,5,.08) 40px,rgba(80,40,10,.0) 80px),
+    linear-gradient(180deg,#1a0a02 0%,#2a1205 30%,#1e0e04 60%,#120802 100%);
+  position:relative;
+  transition:transform 1.6s cubic-bezier(.77,0,.18,1);
+}
+.curtain-left{
+  border-right:2px solid rgba(201,169,110,.3);
+  box-shadow:inset -20px 0 60px rgba(0,0,0,.5), 6px 0 30px rgba(0,0,0,.4);
+  transform-origin:left center;
+}
+.curtain-right{
+  border-left:2px solid rgba(201,169,110,.3);
+  box-shadow:inset 20px 0 60px rgba(0,0,0,.5), -6px 0 30px rgba(0,0,0,.4);
+  transform-origin:right center;
+}
+/* ลายผ้าม่าน */
+.curtain-left::before,.curtain-right::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0,transparent 8px,
+    rgba(201,169,110,.04) 8px,rgba(201,169,110,.04) 10px
+  );
+}
+/* พู่ทอง ด้านบน */
+.curtain-left::after,.curtain-right::after{
+  content:'';position:absolute;top:0;width:100%;height:18px;
+  background:linear-gradient(90deg,
+    #8a6234,#c9a96e,#e8d5a3,#c9a96e,#a07840,#c9a96e,#e8d5a3,#c9a96e,#8a6234
+  );
+  box-shadow:0 4px 12px rgba(0,0,0,.5);
+}
+.curtain-center-glow{
+  position:absolute;left:50%;top:0;bottom:0;
+  width:0;transform:translateX(-50%);
+  box-shadow:0 0 80px 40px rgba(201,169,110,.0);
+  transition:box-shadow 1.6s ease .4s;
+  pointer-events:none;
+}
+/* เปิดม่าน */
+#curtain.open .curtain-left{transform:translateX(-100%);}
+#curtain.open .curtain-right{transform:translateX(100%);}
+#curtain.open .curtain-center-glow{box-shadow:0 0 80px 40px rgba(201,169,110,.25);}
+#curtain.hidden{display:none;}
